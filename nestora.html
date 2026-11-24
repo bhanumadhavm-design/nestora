@@ -1,0 +1,1116 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NESTORA | Student PG & Hostel</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            color: #24352f;
+            background: white;
+            line-height: 1.6;
+        }
+
+        :root {
+            --green: #245c48;
+            --dark: #183c30;
+            --light: #f3f7f3;
+            --orange: #e9a45b;
+            --text: #68766f;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            width: 100%;
+            display: block;
+            object-fit: cover;
+        }
+
+        .section {
+            padding: 90px 8%;
+        }
+
+        /* NAVBAR */
+        header {
+            background: white;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 3px 20px rgba(0,0,0,0.05);
+        }
+
+        .navbar {
+            min-height: 75px;
+            padding: 15px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--dark);
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--orange);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            align-items: center;
+            gap: 28px;
+        }
+
+        .nav-links a {
+            font-size: 14px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--orange);
+        }
+
+        .nav-links .nav-btn {
+            background: var(--green);
+            color: white;
+            padding: 12px 22px;
+            border-radius: 5px;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 680px;
+            background:
+                linear-gradient(90deg, rgba(15,43,33,0.88), rgba(15,43,33,0.35)),
+                url("https://images.unsplash.com/photo-1554995207-c18c203602cb?auto=format&fit=crop&w=1800&q=90");
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            padding: 80px 8%;
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 650px;
+        }
+
+        .tagline, .section-label {
+            color: var(--orange);
+            font-weight: 700;
+            font-size: 13px;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(42px, 6vw, 72px);
+            line-height: 1.15;
+            margin-bottom: 22px;
+        }
+
+        .hero h1 span {
+            color: var(--orange);
+        }
+
+        .hero-description {
+            max-width: 520px;
+            color: #e1e8e3;
+            font-size: 16px;
+            margin-bottom: 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .primary-btn, .secondary-btn {
+            display: inline-block;
+            padding: 14px 26px;
+            border-radius: 5px;
+            font-weight: 700;
+            transition: 0.3s;
+        }
+
+        .primary-btn {
+            background: var(--orange);
+            color: #19372c;
+        }
+
+        .secondary-btn {
+            border: 1px solid white;
+            color: white;
+        }
+
+        .primary-btn:hover, .secondary-btn:hover {
+            transform: translateY(-3px);
+        }
+
+        .hero-info {
+            display: flex;
+            gap: 55px;
+            margin-top: 55px;
+        }
+
+        .hero-info h3 {
+            color: var(--orange);
+            font-size: 27px;
+        }
+
+        .hero-info p {
+            font-size: 13px;
+            color: #e1e8e3;
+        }
+
+        /* SECTION HEADINGS */
+        .section-heading {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-heading h2, .about h2, .rules h2, .contact h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(30px, 4vw, 43px);
+            line-height: 1.2;
+            color: var(--dark);
+            margin-bottom: 14px;
+        }
+
+        .section-heading > p:last-child {
+            color: var(--text);
+        }
+
+        /* ABOUT */
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 65px;
+        }
+
+        .about-image img {
+            height: 420px;
+            border-radius: 10px;
+        }
+
+        .about-content > p:not(.section-label) {
+            color: var(--text);
+            margin: 20px 0;
+            max-width: 500px;
+        }
+
+        .text-link {
+            color: var(--green);
+            font-weight: 700;
+        }
+
+        /* ROOMS */
+        .rooms {
+            background: var(--light);
+        }
+
+        .room-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .room-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.05);
+            transition: 0.3s;
+        }
+
+        .room-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+        }
+
+        .room-card img {
+            height: 230px;
+        }
+
+        .room-details {
+            padding: 25px;
+        }
+
+        .room-type {
+            color: #b67c36;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+        }
+
+        .room-details h3 {
+            font-size: 21px;
+            margin: 10px 0;
+            color: var(--dark);
+        }
+
+        .room-details p {
+            color: var(--text);
+            font-size: 14px;
+        }
+
+        .room-bottom {
+            border-top: 1px solid #e9eee9;
+            margin-top: 20px;
+            padding-top: 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .room-bottom h4 {
+            color: var(--green);
+            font-size: 20px;
+        }
+
+        .room-bottom small {
+            color: var(--text);
+            font-size: 11px;
+            font-weight: 400;
+        }
+
+        .room-bottom a {
+            color: var(--green);
+            font-weight: 700;
+            font-size: 13px;
+        }
+
+        .note {
+            text-align: center;
+            color: var(--text);
+            font-size: 12px;
+            margin-top: 25px;
+        }
+
+        /* FACILITIES */
+        .facility-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .facility-card {
+            padding: 30px;
+            border: 1px solid #e8eee8;
+            border-radius: 9px;
+            transition: 0.3s;
+        }
+
+        .facility-card:hover {
+            background: var(--green);
+            color: white;
+            transform: translateY(-5px);
+        }
+
+        .facility-icon {
+            font-size: 32px;
+            margin-bottom: 18px;
+        }
+
+        .facility-card h3 {
+            font-size: 19px;
+            margin-bottom: 10px;
+        }
+
+        .facility-card p {
+            color: var(--text);
+            font-size: 14px;
+        }
+
+        .facility-card:hover p {
+            color: #dce8df;
+        }
+
+        /* FOOD MENU */
+        .food {
+            background: var(--light);
+        }
+
+        .menu-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .menu-card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            border-top: 4px solid var(--green);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.04);
+        }
+
+        .featured-menu {
+            border-top-color: var(--orange);
+        }
+
+        .menu-top {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 10px;
+        }
+
+        .menu-top span {
+            font-size: 30px;
+        }
+
+        .menu-top h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            color: var(--dark);
+        }
+
+        .menu-card > p {
+            color: #b67c36;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .menu-card ul {
+            list-style: none;
+        }
+
+        .menu-card li {
+            border-bottom: 1px solid #edf0ed;
+            padding: 10px 0;
+            color: var(--text);
+            font-size: 14px;
+        }
+
+        /* RULES */
+        .rules {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .rules-content > p:not(.section-label) {
+            color: var(--text);
+            margin: 15px 0 25px;
+        }
+
+        .rules-image img {
+            height: 500px;
+            border-radius: 10px;
+        }
+
+        .rule-item {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            border-bottom: 1px solid #e9eee9;
+            padding: 15px 0;
+        }
+
+        .rule-item span {
+            color: var(--orange);
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        .rule-item p {
+            color: var(--text);
+            font-size: 14px;
+        }
+
+        /* SUPPORT */
+        .support {
+            background: var(--light);
+        }
+
+        .support-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .support-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            border: 1px solid #edf0ed;
+        }
+
+        .support-icon {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .support-card h3 {
+            color: var(--dark);
+            margin-bottom: 10px;
+        }
+
+        .support-card p {
+            color: var(--text);
+            font-size: 14px;
+            min-height: 70px;
+        }
+
+        .support-card a {
+            display: inline-block;
+            color: var(--green);
+            font-size: 13px;
+            font-weight: 700;
+            margin-top: 15px;
+        }
+
+        /* CONTACT */
+        .contact {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+            align-items: start;
+        }
+
+        .contact-info > p:not(.section-label) {
+            color: var(--text);
+            margin: 20px 0 30px;
+        }
+
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            gap: 17px;
+            margin: 25px 0;
+        }
+
+        .contact-detail > span {
+            background: var(--light);
+            padding: 14px;
+            border-radius: 50%;
+            font-size: 21px;
+        }
+
+        .contact-detail h4 {
+            color: var(--dark);
+        }
+
+        .contact-detail p {
+            color: var(--text);
+            font-size: 14px;
+        }
+
+        .contact-form {
+            background: var(--light);
+            padding: 35px;
+            border-radius: 10px;
+        }
+
+        .contact-form h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--dark);
+            font-size: 26px;
+            margin-bottom: 22px;
+        }
+
+        .contact-form label {
+            display: block;
+            font-size: 13px;
+            font-weight: 700;
+            margin: 15px 0 7px;
+        }
+
+        .contact-form input,
+        .contact-form select,
+        .contact-form textarea {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #dce4dc;
+            border-radius: 5px;
+            font-family: inherit;
+            font-size: 14px;
+            outline: none;
+            background: white;
+        }
+
+        .contact-form input:focus,
+        .contact-form select:focus,
+        .contact-form textarea:focus {
+            border-color: var(--green);
+        }
+
+        .contact-form button {
+            width: 100%;
+            padding: 15px;
+            margin-top: 20px;
+            border: none;
+            border-radius: 5px;
+            background: var(--green);
+            color: white;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .contact-form button:hover {
+            background: var(--dark);
+        }
+
+        /* FOOTER */
+        footer {
+            background: #15372c;
+            color: white;
+            padding: 55px 8% 20px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 30px;
+            padding-bottom: 35px;
+        }
+
+        .footer-logo {
+            color: white;
+        }
+
+        .footer-content p {
+            color: #b8c9bf;
+            margin-top: 8px;
+            font-size: 14px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #dce8df;
+            font-size: 14px;
+        }
+
+        .footer-links a:hover {
+            color: var(--orange);
+        }
+
+        .copyright {
+            border-top: 1px solid #456153;
+            padding-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .copyright p {
+            color: #b8c9bf;
+            font-size: 12px;
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media (max-width: 950px) {
+            .navbar {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-links {
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+
+            .room-grid,
+            .menu-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .about, .rules, .contact {
+                gap: 35px;
+            }
+        }
+
+        @media (max-width: 650px) {
+            .section {
+                padding: 65px 6%;
+            }
+
+            .hero {
+                min-height: 620px;
+                padding: 60px 6%;
+            }
+
+            .hero-info {
+                gap: 25px;
+                flex-wrap: wrap;
+            }
+
+            .nav-links {
+                gap: 12px;
+            }
+
+            .nav-links a {
+                font-size: 12px;
+            }
+
+            .room-grid,
+            .facility-grid,
+            .menu-container,
+            .support-grid,
+            .about,
+            .rules,
+            .contact {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image img,
+            .rules-image img {
+                height: 300px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .copyright {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header>
+        <nav class="navbar">
+            <a href="#" class="logo">NEST<span>ORA.</span></a>
+
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#rooms">Rooms</a></li>
+                <li><a href="#facilities">Facilities</a></li>
+                <li><a href="#food">Food Menu</a></li>
+                <li><a href="#rules">Rules</a></li>
+                <li><a href="#contact" class="nav-btn">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <p class="tagline">YOUR HOME AWAY FROM HOME</p>
+
+            <h1>Find Your Perfect<br><span>Student Living.</span></h1>
+
+            <p class="hero-description">
+                Comfortable rooms, delicious food, modern facilities
+                and a friendly environment. Everything you need
+                to make hostel life better.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#rooms" class="primary-btn">Explore Rooms</a>
+                <a href="#contact" class="secondary-btn">Enquire Now</a>
+            </div>
+
+            <div class="hero-info">
+                <div>
+                    <h3>120+</h3>
+                    <p>Happy Residents</p>
+                </div>
+                <div>
+                    <h3>24/7</h3>
+                    <p>Security</p>
+                </div>
+                <div>
+                    <h3>100%</h3>
+                    <p>Comfort</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about section" id="about">
+        <div class="about-image">
+            <img src="https://images.unsplash.com/photo-1555854877-bab0e564b8d5?auto=format&fit=crop&w=1000&q=85" alt="Comfortable hostel room">
+        </div>
+
+        <div class="about-content">
+            <p class="section-label">ABOUT NESTORA</p>
+            <h2>A Better Place to<br>Live and Grow.</h2>
+            <p>
+                Nestora is designed for students and working professionals
+                looking for a safe, peaceful and affordable place to stay.
+                We combine comfort, convenience and community to make
+                every resident feel at home.
+            </p>
+            <a href="#facilities" class="text-link">Discover Our Facilities →</a>
+        </div>
+    </section>
+
+    <!-- ROOMS -->
+    <section class="rooms section" id="rooms">
+        <div class="section-heading">
+            <p class="section-label">ACCOMMODATION</p>
+            <h2>Choose Your Room</h2>
+            <p>Comfortable spaces designed for every budget.</p>
+        </div>
+
+        <div class="room-grid">
+
+            <div class="room-card">
+                <img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&w=900&q=85" alt="Four sharing room">
+                <div class="room-details">
+                    <span class="room-type">BUDGET FRIENDLY</span>
+                    <h3>Four Sharing Room</h3>
+                    <p>Shared accommodation with essential facilities.</p>
+                    <div class="room-bottom">
+                        <h4>₹5,000 <small>/ month</small></h4>
+                        <a href="#contact">Enquire →</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="room-card">
+                <img src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=900&q=85" alt="Two sharing room">
+                <div class="room-details">
+                    <span class="room-type">POPULAR CHOICE</span>
+                    <h3>Two Sharing Room</h3>
+                    <p>Extra personal space with a comfortable setup.</p>
+                    <div class="room-bottom">
+                        <h4>₹7,000 <small>/ month</small></h4>
+                        <a href="#contact">Enquire →</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="room-card">
+                <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&w=900&q=85" alt="Single sharing room">
+                <div class="room-details">
+                    <span class="room-type">PREMIUM</span>
+                    <h3>Single Sharing Room</h3>
+                    <p>Private room for peaceful and independent living.</p>
+                    <div class="room-bottom">
+                        <h4>₹10,000 <small>/ month</small></h4>
+                        <a href="#contact">Enquire →</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <p class="note">* Room prices are sample prices for this academic project.</p>
+    </section>
+
+    <!-- FACILITIES -->
+    <section class="facilities section" id="facilities">
+        <div class="section-heading">
+            <p class="section-label">WHAT WE PROVIDE</p>
+            <h2>Everything You Need</h2>
+            <p>Enjoy a comfortable and convenient hostel experience.</p>
+        </div>
+
+        <div class="facility-grid">
+            <div class="facility-card">
+                <div class="facility-icon">📶</div>
+                <h3>Free Wi-Fi</h3>
+                <p>High-speed internet for learning and entertainment.</p>
+            </div>
+
+            <div class="facility-card">
+                <div class="facility-icon">🍽️</div>
+                <h3>Healthy Food</h3>
+                <p>Freshly prepared meals served every day.</p>
+            </div>
+
+            <div class="facility-card">
+                <div class="facility-icon">🧺</div>
+                <h3>Laundry</h3>
+                <p>Convenient laundry facilities for residents.</p>
+            </div>
+
+            <div class="facility-card">
+                <div class="facility-icon">🛡️</div>
+                <h3>24/7 Security</h3>
+                <p>Secure entry and CCTV monitoring in common areas.</p>
+            </div>
+
+            <div class="facility-card">
+                <div class="facility-icon">🚿</div>
+                <h3>Hot Water</h3>
+                <p>Hot water availability for daily convenience.</p>
+            </div>
+
+            <div class="facility-card">
+                <div class="facility-icon">🧹</div>
+                <h3>Housekeeping</h3>
+                <p>Regular cleaning of rooms and common areas.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOD MENU -->
+    <section class="food section" id="food">
+        <div class="section-heading">
+            <p class="section-label">FRESH & DELICIOUS</p>
+            <h2>Our Weekly Food Menu</h2>
+            <p>Nutritious and homely meals for every resident.</p>
+        </div>
+
+        <div class="menu-container">
+
+            <div class="menu-card">
+                <div class="menu-top">
+                    <span>🌅</span>
+                    <h3>Breakfast</h3>
+                </div>
+                <p>7:30 AM – 9:00 AM</p>
+                <ul>
+                    <li>Monday – Idli & Sambar</li>
+                    <li>Tuesday – Dosa & Chutney</li>
+                    <li>Wednesday – Upma</li>
+                    <li>Thursday – Poori & Curry</li>
+                    <li>Friday – Pongal</li>
+                    <li>Saturday – Pesarattu</li>
+                    <li>Sunday – Special Breakfast</li>
+                </ul>
+            </div>
+
+            <div class="menu-card featured-menu">
+                <div class="menu-top">
+                    <span>☀️</span>
+                    <h3>Lunch</h3>
+                </div>
+                <p>12:30 PM – 2:00 PM</p>
+                <ul>
+                    <li>Monday – Rice & Dal</li>
+                    <li>Tuesday – Veg Pulao</li>
+                    <li>Wednesday – Rice & Sambar</li>
+                    <li>Thursday – Curd Rice & Curry</li>
+                    <li>Friday – Veg Biryani</li>
+                    <li>Saturday – Meals Special</li>
+                    <li>Sunday – Special Thali</li>
+                </ul>
+            </div>
+
+            <div class="menu-card">
+                <div class="menu-top">
+                    <span>🌙</span>
+                    <h3>Dinner</h3>
+                </div>
+                <p>7:30 PM – 9:00 PM</p>
+                <ul>
+                    <li>Monday – Chapati & Curry</li>
+                    <li>Tuesday – Rice & Dal</li>
+                    <li>Wednesday – Dosa</li>
+                    <li>Thursday – Veg Fried Rice</li>
+                    <li>Friday – Chapati & Paneer</li>
+                    <li>Saturday – Tomato Rice</li>
+                    <li>Sunday – Special Dinner</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <p class="note">* Menu is illustrative and may change based on availability.</p>
+    </section>
+
+    <!-- HOSTEL RULES -->
+    <section class="rules section" id="rules">
+        <div class="rules-content">
+            <p class="section-label">RESIDENT GUIDELINES</p>
+            <h2>Hostel Rules & Regulations</h2>
+            <p>Simple guidelines help us maintain a safe and peaceful environment.</p>
+
+            <div class="rules-list">
+                <div class="rule-item">
+                    <span>01</span>
+                    <p>Maintain cleanliness in rooms and common areas.</p>
+                </div>
+
+                <div class="rule-item">
+                    <span>02</span>
+                    <p>Follow the hostel entry and exit timings.</p>
+                </div>
+
+                <div class="rule-item">
+                    <span>03</span>
+                    <p>Respect fellow residents and hostel staff.</p>
+                </div>
+
+                <div class="rule-item">
+                    <span>04</span>
+                    <p>Avoid loud music and disturbances during quiet hours.</p>
+                </div>
+
+                <div class="rule-item">
+                    <span>05</span>
+                    <p>Take care of hostel property and shared facilities.</p>
+                </div>
+
+                <div class="rule-item">
+                    <span>06</span>
+                    <p>Inform management before planning an extended absence.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="rules-image">
+            <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=900&q=85" alt="Students spending time together">
+        </div>
+    </section>
+
+    <!-- COMPLAINT & SUPPORT -->
+    <section class="support section" id="support">
+        <div class="section-heading">
+            <p class="section-label">WE ARE HERE TO HELP</p>
+            <h2>Complaint & Support</h2>
+            <p>Your comfort matters. Let us know if something needs attention.</p>
+        </div>
+
+        <div class="support-grid">
+
+            <div class="support-card">
+                <div class="support-icon">🔧</div>
+                <h3>Maintenance Issues</h3>
+                <p>Report problems with electricity, water, furniture or room facilities.</p>
+                <a href="mailto:support@nestora.com?subject=Maintenance%20Request">Report an Issue →</a>
+            </div>
+
+            <div class="support-card">
+                <div class="support-icon">🍱</div>
+                <h3>Food Feedback</h3>
+                <p>Share your suggestions about food quality and menu preferences.</p>
+                <a href="mailto:support@nestora.com?subject=Food%20Feedback">Give Feedback →</a>
+            </div>
+
+            <div class="support-card">
+                <div class="support-icon">💬</div>
+                <h3>General Support</h3>
+                <p>Need assistance? Contact our hostel management team.</p>
+                <a href="mailto:support@nestora.com?subject=General%20Support">Get Support →</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact section" id="contact">
+
+        <div class="contact-info">
+            <p class="section-label">GET IN TOUCH</p>
+            <h2>Let's Find Your<br>New Home.</h2>
+
+            <p>Have questions about rooms, availability or facilities? Contact us today.</p>
+
+            <div class="contact-detail">
+                <span>📍</span>
+                <div>
+                    <h4>Address</h4>
+                    <p>Madhapur, Hyderabad, Telangana</p>
+                </div>
+            </div>
+
+            <div class="contact-detail">
+                <span>📞</span>
+                <div>
+                    <h4>Phone</h4>
+                    <p>+91 98765 43210</p>
+                </div>
+            </div>
+
+            <div class="contact-detail">
+                <span>✉️</span>
+                <div>
+                    <h4>Email</h4>
+                    <p>info@nestora.com</p>
+                </div>
+            </div>
+        </div>
+
+        <form class="contact-form" action="#" method="get">
+            <h3>Enquiry Form</h3>
+
+            <label for="name">Full Name</label>
+            <input type="text" id="name" placeholder="Enter your name" required>
+
+            <label for="email">Email Address</label>
+            <input type="email" id="email" placeholder="Enter your email" required>
+
+            <label for="room">Preferred Room</label>
+            <select id="room" required>
+                <option value="">Select a room</option>
+                <option>Four Sharing</option>
+                <option>Two Sharing</option>
+                <option>Single Sharing</option>
+            </select>
+
+            <label for="message">Your Message</label>
+            <textarea id="message" rows="4" placeholder="Write your enquiry..."></textarea>
+
+            <button type="submit">Submit Enquiry →</button>
+        </form>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+
+            <div>
+                <a href="#" class="logo footer-logo">NEST<span>ORA.</span></a>
+                <p>Your home away from home.</p>
+            </div>
+
+            <div class="footer-links">
+                <a href="#home">Home</a>
+                <a href="#rooms">Rooms</a>
+                <a href="#facilities">Facilities</a>
+                <a href="#contact">Contact</a>
+            </div>
+
+        </div>
+
+        <div class="copyright">
+            <p>© 2026 NESTORA Hostel. All Rights Reserved.</p>
+            <p>Designed for a better living experience.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
